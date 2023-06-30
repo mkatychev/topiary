@@ -138,6 +138,16 @@ impl TopiaryQuery {
         )
         .expect("parsing built-in query")
     }
+
+    /// Creates a new `TopiaryQuery` using the built-in Protobuf query file.
+    #[cfg(not(target_arch = "wasm32"))]
+    pub fn proto() -> TopiaryQuery {
+        Self::new(
+            &tree_sitter_proto::language().into(),
+            include_str!("../languages/proto.scm"),
+        )
+        .expect("parsing built-in query")
+    }
 }
 
 impl From<Point> for Position {
