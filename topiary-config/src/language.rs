@@ -66,8 +66,8 @@ impl Language {
             #[cfg(feature = "toml")]
             "toml" => "toml",
 
-            #[cfg(feature = "openscad")]
-            "openscad" => "openscad",
+            #[cfg(feature = "proto")]
+            "proto" => "proto",
 
             #[cfg(feature = "tree_sitter_query")]
             "tree_sitter_query" => "tree-sitter-query",
@@ -122,8 +122,8 @@ impl Language {
             #[cfg(feature = "toml")]
             "toml" => tree_sitter_toml::language(),
 
-            #[cfg(feature = "openscad")]
-            "openscad" => tree_sitter_openscad::language(),
+            #[cfg(feature = "proto")]
+            "proto" => tree_sitter_proto::language(),
 
             #[cfg(feature = "tree_sitter_query")]
             "tree_sitter_query" => tree_sitter_query::language(),

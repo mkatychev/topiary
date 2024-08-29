@@ -41,9 +41,9 @@ pub fn ocamllex() -> &'static str {
 }
 
 /// Returns the Topiary-compatible query file for Ocamllex.
-#[cfg(feature = "openscad")]
-pub fn openscad() -> &'static str {
-    include_str!("../queries/openscad.scm")
+#[cfg(feature = "proto")]
+pub fn proto() -> &'static str {
+    include_str!("../queries/proto.scm")
 }
 
 /// Returns the Topiary-compatible query file for Rust.

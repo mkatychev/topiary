@@ -1887,7 +1887,7 @@ dependencies = [
  "tree-sitter-nickel",
  "tree-sitter-ocaml",
  "tree-sitter-ocamllex",
- "tree-sitter-openscad",
+ "tree-sitter-proto",
  "tree-sitter-query",
  "tree-sitter-rust",
  "tree-sitter-toml",
@@ -1912,7 +1912,7 @@ dependencies = [
  "tree-sitter-nickel",
  "tree-sitter-ocaml",
  "tree-sitter-ocamllex",
- "tree-sitter-openscad",
+ "tree-sitter-proto",
  "tree-sitter-query",
  "tree-sitter-rust",
  "tree-sitter-toml",
@@ -2017,6 +2017,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "tree-sitter-language"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2545046bd1473dac6c626659cc2567c6c0ff302fc8b84a56c4243378276f7f57"
+
+[[package]]
 name = "tree-sitter-nickel"
 version = "0.2.0"
 source = "git+https://github.com/nickel-lang/tree-sitter-nickel?rev=43433d8477b24cd13acaac20a66deda49b7e2547#43433d8477b24cd13acaac20a66deda49b7e2547"
@@ -2044,12 +2050,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "tree-sitter-openscad"
-version = "0.5.1"
-source = "git+https://github.com/mkatychev/tree-sitter-openscad?rev=a7ac1a1d28495d009df76415f98b32c2cacbccd3#a7ac1a1d28495d009df76415f98b32c2cacbccd3"
+name = "tree-sitter-proto"
+version = "0.0.1"
+source = "git+https://github.com/mkatychev/tree-sitter-proto?rev=3cd138b#3cd138bd58cd6df6ce9194dfefadb1c85a2f13b6"
 dependencies = [
  "cc",
- "tree-sitter",
+ "tree-sitter-language",
 ]
 
 [[package]]

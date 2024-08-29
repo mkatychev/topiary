@@ -31,7 +31,7 @@ tree-sitter-nickel = { workspace = true, optional = true }
 tree-sitter-query = { workspace = true, optional = true }
 tree-sitter-ocaml = { workspace = true, optional = true }
 tree-sitter-ocamllex = { workspace = true, optional = true }
-tree-sitter-openscad = { workspace = true, optional = true }
+tree-sitter-proto = { workspace = true, optional = true }
 
 [target.'cfg(not(target_family = "wasm"))'.dependencies]
 clap = { workspace = true, features = ["derive"] }
@@ -44,7 +44,7 @@ nickel = ["dep:tree-sitter-nickel"]
 ocaml = ["dep:tree-sitter-ocaml"]
 ocaml_interface = ["dep:tree-sitter-ocaml"]
 ocamllex = ["dep:tree-sitter-ocamllex"]
-openscad = ["dep:tree-sitter-openscad"]
+proto = ["dep:tree-sitter-proto"]
 rust = ["dep:tree-sitter-rust"]
 toml = ["dep:tree-sitter-toml"]
 tree_sitter_query = ["dep:tree-sitter-query"]
@@ -59,7 +59,7 @@ all = [
   "ocaml",
   "ocaml_interface",
   "ocamllex",
-  "openscad",
+  "proto",
   "rust",
   "toml",
   "tree_sitter_query"

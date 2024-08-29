@@ -36,7 +36,7 @@
 
     toml.extensions = ["toml"],
 
-    openscad.extensions = ["scad", "openscad"],
+    proto.extensions = ["proto"],
 
     tree_sitter_query.extensions = ["scm"],
   },

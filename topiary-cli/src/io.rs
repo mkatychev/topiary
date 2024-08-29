@@ -344,8 +344,8 @@ where
         #[cfg(feature = "ocamllex")]
         "ocamllex" => Ok(topiary_queries::ocamllex().into()),
 
-        #[cfg(feature = "openscad")]
-        "openscad" => Ok(topiary_queries::openscad().into()),
+        #[cfg(feature = "proto")]
+        "proto" => Ok(topiary_queries::proto().into()),
 
         #[cfg(feature = "rust")]
         "rust" => Ok(topiary_queries::rust().into()),
