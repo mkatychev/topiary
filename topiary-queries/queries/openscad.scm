@@ -273,6 +273,7 @@
   "]"
   .
   (#multi_line_only!)
+  (#query_name! "list_append_comma")
 )
 
 ; differentiate parameter definitions from parameter invocation,
