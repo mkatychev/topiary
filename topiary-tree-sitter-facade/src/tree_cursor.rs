@@ -25,6 +25,11 @@ mod native {
         }
 
         #[inline]
+        pub fn goto_last_child(&mut self) -> bool {
+            self.inner.goto_last_child()
+        }
+
+        #[inline]
         pub fn goto_first_child_for_byte(&mut self, index: u32) -> Option<u32> {
             let index = index as usize;
             self.inner

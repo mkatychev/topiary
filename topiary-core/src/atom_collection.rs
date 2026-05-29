@@ -1072,25 +1072,22 @@ impl AtomCollection {
         if let Some(id) = self.first_leaf_cache.get(&node.id()) {
             return *id;
         }
+        let mut cursor = node.walk();
 
         let mut path = Vec::new();
-        let mut current_node = std::borrow::Cow::Borrowed(node);
-
-        while current_node.child_count() != 0
-            && !self.specified_leaf_nodes.contains(&current_node.id())
+        while cursor.goto_first_child() && !self.specified_leaf_nodes.contains(&cursor.node().id())
         {
-            if let Some(id) = self.first_leaf_cache.get(&current_node.id()) {
+            if let Some(id) = self.first_leaf_cache.get(&cursor.node().id()) {
                 let leaf_id = *id;
                 for path_id in path {
                     self.first_leaf_cache.insert(path_id, leaf_id);
                 }
                 return leaf_id;
             }
-            path.push(current_node.id());
-            current_node = std::borrow::Cow::Owned(current_node.child(0).unwrap());
+            path.push(cursor.node().id());
         }
 
-        let leaf_id = current_node.id();
+        let leaf_id = cursor.node().id();
         for path_id in path {
             self.first_leaf_cache.insert(path_id, leaf_id);
         }
@@ -1116,27 +1113,21 @@ impl AtomCollection {
         if let Some(id) = self.last_leaf_cache.get(&node.id()) {
             return *id;
         }
+        let mut cursor = node.walk();
 
         let mut path = Vec::new();
-        let mut current_node = std::borrow::Cow::Borrowed(node);
-
-        while current_node.child_count() != 0
-            && !self.specified_leaf_nodes.contains(&current_node.id())
-        {
-            if let Some(id) = self.last_leaf_cache.get(&current_node.id()) {
+        while cursor.goto_last_child() && !self.specified_leaf_nodes.contains(&cursor.node().id()) {
+            if let Some(id) = self.last_leaf_cache.get(&cursor.node().id()) {
                 let leaf_id = *id;
                 for path_id in path {
                     self.last_leaf_cache.insert(path_id, leaf_id);
                 }
                 return leaf_id;
             }
-            path.push(current_node.id());
-            current_node = std::borrow::Cow::Owned(
-                current_node.child(current_node.child_count() - 1).unwrap(),
-            );
+            path.push(cursor.node().id());
         }
 
-        let leaf_id = current_node.id();
+        let leaf_id = cursor.node().id();
         for path_id in path {
             self.last_leaf_cache.insert(path_id, leaf_id);
         }
